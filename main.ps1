@@ -20,7 +20,7 @@ $win_features = "HypervisorPlatform","VirtualMachinePlatform","Microsoft-Windows
 
 ForEach ($0 in $win_features) {
   Write-Host "Now installing $0..."
-  dism /online /enable-features $0
+  dism /online /enable-feature /featurename:$0 /All
 }
 
 # 5. Install dev tools
