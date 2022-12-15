@@ -25,9 +25,9 @@ ForEach ($0 in $win_features) {
 
 # 5. Install dev tools
 # Visual Studio Code
-"$PSScriptRoot\Install-DevTools\vscode.ps1"
+& "$PSScriptRoot\Install-DevTools\vscode.ps1"
 # Git
-"$PSScriptRoot\Install-DevTools\git.ps1"
+& "$PSScriptRoot\Install-DevTools\git.ps1"
 # Node Version Manager
-"$PSScriptRoot\Install-DevTools\nvm.ps1"
+& "$PSScriptRoot\Install-DevTools\nvm.ps1"
 
