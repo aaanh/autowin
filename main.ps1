@@ -1,3 +1,9 @@
+# 0. Shell preparation
+if (Get-ExecutionPolicy -Scope CurrentUser -ne "Unrestricted") {
+  Write-Host "Setting ExecutionPolicy to Unrestricted..."
+  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted -Force
+}
+
 # 1. Hide Windows 10 search bar using Registry
 Write-Host "Hiding Search Bar..."
 
@@ -16,7 +22,7 @@ Invoke-WebRequest -Uri "https://dl.google.com/chrome/install/latest/chrome_insta
 Start-Process -FilePath $env:TEMP\chrome_installer.exe -Args "/silent /install" -Verb RunAs -Wait
 
 # 4. Enable optional features
-$win_features = "HypervisorPlatform","VirtualMachinePlatform","Microsoft-Windows-Subsystem-Linux","Microsoft-Hyper-V-All","Microsoft-Hyper-V","Microsoft-Hyper-V-Tools-All","Microsoft-Hyper-V-Management-Powershell","Microsoft-Hyper-V-Hypervisor","Microsoft-Hyper-V-Services","Microsoft-Hyper-V-Management-Clients"
+$win_features = "HypervisorPlatform", "VirtualMachinePlatform", "Microsoft-Windows-Subsystem-Linux", "Microsoft-Hyper-V-All", "Microsoft-Hyper-V", "Microsoft-Hyper-V-Tools-All", "Microsoft-Hyper-V-Management-Powershell", "Microsoft-Hyper-V-Hypervisor", "Microsoft-Hyper-V-Services", "Microsoft-Hyper-V-Management-Clients"
 
 ForEach ($0 in $win_features) {
   Write-Host "Now installing $0..."
