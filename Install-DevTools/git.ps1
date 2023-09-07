@@ -1,5 +1,8 @@
 # !!stolen from https://stackoverflow.com/questions/46731433/how-to-download-and-install-git-client-for-window-using-powershell
 
+Write-Host "Installing git..."
+Start-Sleep -Seconds 2
+
 # get latest download url for git-for-windows 64-bit exe
 $git_url = "https://api.github.com/repos/git-for-windows/git/releases/latest"
 $asset = Invoke-RestMethod -Method Get -Uri $git_url | % assets | where name -like "*64-bit.exe"
