@@ -21,5 +21,5 @@ Start-Process PowerShell -Verb runAs
 - Then, execute the script
 
 ```powershell
-PowerShell -ExecutionPolicy Bypass -File .\main.ps1
+PowerShell -ExecutionPolicy Bypass -File .\run.ps1
 ```
