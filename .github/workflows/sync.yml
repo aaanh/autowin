@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Check if upstream repo
+        run: |
+          if [ "$GITHUB_REPOSITORY" = "aaanh-enterprise/autowin" ]; then
+            echo "This is the downstream repo. No sync is needed."
+            exit 78
+          fi
       - name: Add remote downstream repo
         run: |
           git config --unset-all http.https://github.com/.extraheader
