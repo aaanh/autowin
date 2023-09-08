@@ -1,0 +1,21 @@
+name: Sync with aaanh-enterprise/autowin fork
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Add remote downstream repo
+        run: |
+          git config --unset-all http.https://github.com/.extraheader
+          git remote add downstream https://aaanh-enterprise:${{secrets.DOWNSTREAM_PAT}}@github.com/aaanh-enterprise/autowin.git
+      - name: Check token
+        run: echo ${{secrets.DOWNSTREAM_PAT}}
+      - name: Push changes to downstream repo
+        run: git push -f downstream HEAD:main
