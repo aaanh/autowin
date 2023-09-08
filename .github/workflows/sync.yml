@@ -14,7 +14,7 @@ jobs:
       - name: Add remote downstream repo
         run: |
           git config --unset-all http.https://github.com/.extraheader
-          git remote add downstream https://aaanh-enterprise:${{secrets.DOWNSTREAM_PAT}}@github.com/aaanh-enterprise/autowin.git
+          git remote add downstream https://${{github.actor}}:${{secrets.DOWNSTREAM_PAT}}@github.com/aaanh-enterprise/autowin.git
       - name: Check token
         run: echo ${{secrets.DOWNSTREAM_PAT}}
       - name: Push changes to downstream repo
