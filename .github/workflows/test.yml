@@ -7,6 +7,9 @@ jobs:
   test:
     runs-on: windows-latest
     steps:
-      - name: test
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Run main.ps1
+        shell: pwsh
         run: |
-          echo "test"
+          Start-Process -FilePath "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -ArgumentList "-NoProfile -ExecutionPolicy Bypass -File main.ps1" -Wait

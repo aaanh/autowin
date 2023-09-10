@@ -10,10 +10,9 @@ $cmdArgs = @(
   "/qn",
   "/norestart",
   "InstallAllUsers=" + $installerOptions.Options.InstallAllUsers,
-  "TargetDir=" + $installerOptions.Options.TargetDir,
-
+  "TargetDir=" + $installerOptions.Options.TargetDir
 )
 
-Invoke-WebRequest -uri $uri -OutFile $env:TEMP\python.exe
+Invoke-WebRequest -UseBasicParsing -uri $uri -OutFile $env:TEMP\python.exe
 
 Start-Process
