@@ -18,12 +18,12 @@ jobs:
           fi
       - name: Add remote downstream repo
         run: |
-          if [ "$GITHUB_REPOSITORY" != "aaanh-enterprise" ]; then
+          if [ "$GITHUB_REPOSITORY" != "aaanh-enterprise/autowin" ]; then
             git config --unset-all http.https://github.com/.extraheader && \
             git remote add downstream https://${{github.actor}}:${{secrets.DOWNSTREAM_PAT}}@github.com/aaanh-enterprise/autowin.git
           fi
       - name: Push changes to downstream repo
         run: |
-          if [ "$GITHUB_REPOSITORY" != "aaanh-enterprise" ]; then
+          if [ "$GITHUB_REPOSITORY" != "aaanh-enterprise/autowin" ]; then
             git push -f downstream HEAD:main
           fi
