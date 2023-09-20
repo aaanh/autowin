@@ -13,6 +13,7 @@ jobs:
         shell: pwsh
         run: |
           Set-ExecutionPolicy Bypass -Force
+          Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
       - name: Run main.ps1
         shell: pwsh
         run: |
